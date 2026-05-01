@@ -1,4 +1,4 @@
-package unl;
+package unl.laboratorio2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,11 +10,11 @@ public class RegistroMedico {
         cache.add(p);
     }
 
-    public List<Object> getCache() {
+    public static List<Object> getCache() {
         return cache;
     }
 
-    public void setCache(List<Object> cache) {
+    public static void setCache(List<Object> cache) {
         RegistroMedico.cache = cache;
     }
 }
