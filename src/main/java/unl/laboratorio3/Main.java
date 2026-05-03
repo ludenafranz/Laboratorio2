@@ -1,6 +1,6 @@
 package unl.laboratorio3;
 
-public class PruebaSistema {
+public class Main {
     public static void main(String[] args) {
 
         ListaOptimizacionEnergetica lista = new ListaOptimizacionEnergetica();
