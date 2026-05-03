@@ -7,34 +7,31 @@ public class Analisis {
     public static void main(String[] args) throws Exception {
         ArrayList<Integer> lista = new ArrayList<>();
 
-        int capacidadActual = 0;
-        int elementos = 100;
+        Field field = ArrayList.class.getDeclaredField("elementData");
+        field.setAccessible(true);
 
-        System.out.printf("%-15s | %-20s | %-15s%n", "Elementos", "Nueva Capacidad", "Latencia (ns)");
-        System.out.println("------------------------------------------------------------");
+        int capacidadPrevia = 0;
+        int elementos = 10_000_000;
+
+        System.out.printf("%-15s | %-15s | %-15s%n", "Tamaño Actual", "Capacidad Real", "Latencia (ns)");
+        System.out.println("-------------------------------------------------------------");
 
         for (int i = 0; i < elementos; i++) {
             long inicio = System.nanoTime();
             lista.add(i);
             long fin = System.nanoTime();
+            long latencia = fin - inicio;
 
-            if (i == capacidadActual ) {
+            Object[] elementData = (Object[]) field.get(lista);
+            int capacidadActual = elementData.length;
 
-                int oldcapacidad = capacidadActual;
-
-                if (capacidadActual == 0){
-                    capacidadActual = 10;
-                } else {
-                    //formulas usada por java para aumentar la capacidad de un arreglo dinámico
-                    capacidadActual = oldcapacidad + (oldcapacidad >> 1);
-                }
-
-                System.out.println("Capacidad anterior: " + oldcapacidad);
-
-                System.out.printf("%-15d | %-20d | %-15d%n", i + 1, capacidadActual,(fin - inicio));
-            } else {
-                System.out.printf("%-15d | %-20d | %-15d%n", i + 1, capacidadActual, (fin - inicio));
+            if (capacidadActual > capacidadPrevia) {
+                System.out.printf("%-15d | %-15d | %-15d%n", i + 1, capacidadActual, latencia);
+                capacidadPrevia = capacidadActual;
             }
         }
+
+        System.out.println("Proceso terminado. Revisa JVisualVM.");
+        Thread.sleep(200000);
     }
 }
