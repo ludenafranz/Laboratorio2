@@ -8,7 +8,7 @@ public class Analisis {
         ArrayList<Integer> lista = new ArrayList<>();
 
         int capacidadActual = 0;
-        int elementos = 100;
+        int elementos = 100000;
 
         System.out.printf("%-15s | %-20s | %-15s%n", "Elementos", "Nueva Capacidad", "Latencia (ns)");
         System.out.println("------------------------------------------------------------");
