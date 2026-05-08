@@ -28,14 +28,14 @@ public class ListaOptimizacionEnergetica {
     }
 
     public PuntoOptimizacion buscarPorId(int id) {
-        Nodo temporal = cabecera;
-        while (temporal != null) {
-            if (temporal.getDato().getId() == id) {
-                return temporal.getDato(); // Retorna el objeto encontrado
+        Nodo temp = cabecera;
+        while (temp != null) {
+            if (temp.getDato().getId() == id) {
+                return temp.getDato();
             }
-            temporal = temporal.siguiente;
+            temp = temp.siguiente;
         }
-        return null; // No se encontró
+        return null;
     }
 
 }

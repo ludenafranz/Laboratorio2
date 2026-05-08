@@ -5,7 +5,6 @@ public class PuntoOptimizacion {
     private double consumo;
     private String nombreSensor;
 
-    // Constructor para crear el objeto
     public PuntoOptimizacion(int id, double consumo, String nombreSensor) {
         this.id = id;
         this.consumo = consumo;
