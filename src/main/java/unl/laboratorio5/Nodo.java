@@ -1,15 +1,15 @@
 package unl.laboratorio5;
 
-
-
 public class Nodo {
     private Carga data;
     private Nodo siguiente;
-    private Nodo anterior;
+
+    public Nodo() {
+    }
+
     public Nodo(Carga data) {
         this.data = data;
         this.siguiente = null;
-        this.anterior = null;
     }
 
     public Carga getData() {
@@ -28,11 +28,4 @@ public class Nodo {
         this.siguiente = siguiente;
     }
 
-    public Nodo getAnterior() {
-        return anterior;
-    }
-
-    public void setAnterior(Nodo anterior) {
-        this.anterior = anterior;
-    }
 }
